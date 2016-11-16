@@ -1,0 +1,19 @@
+###OSX###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+public/
+public/bundle.js
+public/bundle.js.map
+data.json
+
+# Node
+node_modules
+npm-debug.log
+
+# Floobits
+.floo
+.floobit
+.flooignore
