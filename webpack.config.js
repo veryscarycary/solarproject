@@ -1,20 +1,17 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'client', 'index.js'),
+  entry: "./client/index.jsx",
   output: {
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/public/',
-    filename: 'bundle.js'
+      path: "./public",
+      filename: "bundle.js"
   },
   devtool: 'source-map',
   module: {
-    loaders: [
-    {
+    loaders: [{
       test: /\.jsx?$/,
-      loader: 'babel-loader',
       exclude: /node_modules/,
+      loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
       query: {
         presets: ['es2015', 'react']
       }

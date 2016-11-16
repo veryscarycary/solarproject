@@ -1,3 +1,5 @@
+import React from 'react';
+
 class App extends React.Component {
   constructor () {
     super();
@@ -10,3 +12,5 @@ class App extends React.Component {
     );
   }
 }
+
+module.exports = App;
