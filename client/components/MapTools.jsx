@@ -12,7 +12,9 @@ class MapTools extends React.Component {
       polygons:[],
       polygonCounter: 1,
       area: 0,
-      totalArea: 0
+      totalArea: 0,
+      wattage: 0,
+      systemSize: 'uncalculated'
     };
 
     this.calculateArea = this.calculateArea.bind(this);
@@ -82,24 +84,52 @@ class MapTools extends React.Component {
     });
   }
 
+  calculateSystemSize() {
+    this.setState({
+      systemSize: this.state.totalArea/this.state.wattage
+    });
+
+    console.log(this.state.totalArea, this.state.wattage);
+  }
+
+  setWattage(event) {
+    this.setState({
+      wattage: event.target.value
+    });
+  }
 
   render () {
     return (
       <div>
         <button onClick={this.addPolygon.bind(this)}>Generate Polygon</button>
+        <br />
+        <br />
         <button onClick={this.calculateTotalArea.bind(this)}>Calculate Total Area</button>
-        <div>
-          {this.state.totalArea}
-        </div>
+        <button onClick={this.calculateSystemSize.bind(this)}>Calculate System Size</button>
 
         <table>
+          <thead>
+            <th>Total Area</th>
+            <th>Wattage/m<sup>2</sup></th>
+            <th>System Size(kW)</th>
+          </thead>
           <tbody>
+            <td>{this.state.totalArea}</td>
+            <td><input onChange={this.setWattage.bind(this)} type="number" placeholder="Wattage/sq meter" /></td>
+            <td>{this.state.systemSize}</td>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
             <tr>
               <td>Polygons</td>
               <td>Pitch</td>
               <td>Azimuth</td>
-              <td>Area</td>
+              <td>Wattage/m<sup>2</sup></td>
             </tr>
+          </thead>
+          <tbody>
             {this.state.polygons.map((polygon)=>(
               <PolygonRow
                 area={this.state.area}
