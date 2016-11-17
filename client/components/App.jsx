@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='flexFlowCenter'>
         <h1>Solar Measurement Tool</h1>
         <Map />
       </div>

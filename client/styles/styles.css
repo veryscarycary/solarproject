@@ -1,6 +1,37 @@
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
+
+
+.flexFlowCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centerWidth {
+  width: 500px;
+}
+
+.marginBottom {
+  margin-bottom: 40px;
+}
+
+.marginTop {
+  margin-top: 40px;
+}
+
 #map {
   height: 500px;
   width: 500px;
+  margin-bottom: 10px;
+}
+
+table {
+  margin: 10px;
+}
+
+performance {
+  height: inherit;
+  width:inherit;
+  background-color: #999999;
 }

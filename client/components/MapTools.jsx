@@ -131,13 +131,39 @@ class MapTools extends React.Component {
   render () {
     return (
       <div>
-        <button onClick={this.addPolygon.bind(this)}>Generate Polygon</button>
+        <button className='btn btn-primary' onClick={this.addPolygon.bind(this)}>Generate Polygon</button>
         <br />
         <br />
-        <button onClick={this.calculateTotalArea.bind(this)}>Calculate Total Area</button>
-        <button onClick={this.calculateSystemSize.bind(this)}>Calculate System Size</button>
 
-        <table>
+        <table className='table table-hover table-bordered'>
+          <thead>
+            <tr>
+              <td>Polygons</td>
+              <td>Azimuth</td>
+              <td>Pitch</td>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.polygons.map((polygon)=>(
+              <PolygonRow
+              area={this.state.area}
+              calculateArea={this.calculateArea}
+              polygonCounter={this.polygonCounter}
+              polygon={polygon}
+              setAzimuth={this.setAzimuth.bind(this)}
+              setPitch={this.setPitch.bind(this)}
+              />
+            ))}
+          </tbody>
+        </table>
+
+        <ul className='centerWidth marginBottom'>
+          <li>Click on the Generate Polygon button to add a new polygon to map. You may add as many polygons as you like and keep track of them in the table above.</li>
+        </ul>
+
+        <button className='btn btn-primary' onClick={this.calculateTotalArea.bind(this)}>Calculate Total Area</button>
+        <button className='btn btn-primary' onClick={this.calculateSystemSize.bind(this)}>Calculate System Size</button>
+        <table className='table table-hover table-bordered marginBottom'>
           <thead>
             <tr>
               <th>Total Area</th>
@@ -154,27 +180,6 @@ class MapTools extends React.Component {
           </tbody>
         </table>
 
-        <table>
-          <thead>
-            <tr>
-              <td>Polygons</td>
-              <td>Azimuth</td>
-              <td>Pitch</td>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.polygons.map((polygon)=>(
-              <PolygonRow
-                area={this.state.area}
-                calculateArea={this.calculateArea}
-                polygonCounter={this.polygonCounter}
-                polygon={polygon}
-                setAzimuth={this.setAzimuth.bind(this)}
-                setPitch={this.setPitch.bind(this)}
-              />
-            ))}
-          </tbody>
-        </table>
 
         <PerformanceTable
           setSystemCapacity={this.setSystemCapacity.bind(this)}

@@ -25,28 +25,24 @@ class PerformanceTable extends React.Component {
       return acc + azimuth[1];
     }, 0);
 
-    console.log(this, 'this');
-    console.log(JSON.stringify(pitchesTotal), 'pitchesTotal');
-    console.log(JSON.stringify(azimuthTotal), 'azimuthTotal');
-
     // system_capacity of the system (#panels x wattage of each panel)
     // stub of energy production per month based on [system size in kW] x
     // [1,400 kWh / kW / year]
-    const energyProdPerMonth = lat + lng + pitchesTotal + azimuthTotal + systemCapacity;
+    const energyProdPerMonth = systemCapacity*80000;
 
     this.setState({
       energyProdPerMonth
     });
 
-    alert(energyProdPerMonth);
+    return energyProdPerMonth;
   }
 
   render () {
     return (
-      <div>
+      <div className='performance marginTop'>
         System Capacity
         <input onChange={this.props.setSystemCapacity.bind(this)} type="number" placeholder="# Panels/W per panel" />
-        <button onClick={()=>{this.getPVWatts(this.props.systemCapacity)}}>Calculate Energy Production Per Month</button>
+        <button className='btn btn-primary' onClick={()=>{this.getPVWatts(this.props.systemCapacity)}}>Calculate Energy Production Per Month</button>
         <div>
           Energy Production Per Month: {this.state.energyProdPerMonth}
         </div>
