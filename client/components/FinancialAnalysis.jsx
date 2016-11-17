@@ -18,7 +18,6 @@ class FinancialAnalysis extends React.Component {
     return (
       <div className='marginTop'>
 
-      // begin table that shows costs and savings
         <table className='table table-hover table-bordered'>
           <thead>
             <tr>
@@ -38,7 +37,7 @@ class FinancialAnalysis extends React.Component {
           </tbody>
         </table>
 
-        // Here is where we insert our two graphs
+
         <CashFlowGraph />
         <EnergyProductionGraph />
       </div>
