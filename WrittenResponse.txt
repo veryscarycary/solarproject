@@ -1,0 +1,20 @@
+- For the functionality that you did not have time to implement, how would you go about it?
+I did not have enough time to fully implement the PVWatts API to return the energy production per month. That being said, I am fully comfortable and able to implement AJAX calls and HTTP requests. To complete this functionality, I would visit the PVWatts API portal online and read the docs on which URI the specify as their endpoint and how they would like to receive their query parameters and headers. I would implement the request via the native ‘fetch’ function and specify that it will be a ‘GET’ request with certain query parameters included. Upon receiving the data, I would check to make sure the data was in a JSON format and extract the information out and place it into the component state. The state change would refresh the page and show the appropriate data in the view.
+
+- If you had more time, what other functionality would you implement?
+
+If I had more time, I would love to add some more functionality to the graphs and tables that allow you to more easily/clearly show the user how they can customize their data. Currently, there is a popup window that shows you the coordinates of the vertices on your polygon on the map, but that isn’t very useful. I would instead like to show each polyon’s area in this window, in addition to each polygons specific area in the table. I would also like to make sure that the polygon table is clearly understood to be a table on page load. Currently, it doesn’t appear to be a table and may mislead some users. Lastly, I would like to add more configured options to the graphs that would allows the user to see different cash flows over different lengths of time.
+
+As far as best practices go, I would also implement some tests. I would probably go with Mocha, Chai, and Sinon to unit test the work and then move on to implement integration testing and continuous integration.
+
+- What do you think is an effective way to communicate the value proposition of going solar to the user?
+
+I think the most valuable proposition for going solar involves net cash flow gain as well as environmental impact. First, people want to know that the investment will actually put money back into their pockets in due time. I think the cash flow graphs and the google map tool are a great method of clearly spelling this out to the user. Each user wants to know that the product will work for his or her tailored situation. Secondly, people are concerned that we are becoming too dependent on coal and fossil fuels to generate our electricity. Solar makes the case that it’s no longer necessary to rely on these older forms of energy production. Perhaps, there could be some metrics included to support environmental impact.
+
+- What are some of the limitations of this (relatively simple) approach?
+
+First off, because of time limitations, some of the functions and data sets included in this model are stubbed out with dummy data. That is the first clear limitation of this approach. Next, Google Maps makes it hard to see every angle of the house. It is also difficult on the user: the user has to know the roof angle and the the azimuth which will require the user to have some technical knowledge and insight into it already. Lastly, this app only supports only one model of solar panel currently which limits how much we can customize it for the user.
+
+- If this were a stand-alone application, what would need to be done to get it production-ready?
+
+If this were a stand-alone app, we would need to set up a backend and standalone server to host it. We would also implement build tools that allow us to automate our production environment, which would involve minifying and condensing our code so that the code is lightweight and quickly. Lastly, we would want to check for security holes in the application to make sure that we are not vulnerable to cross-site server attacks and the like.
