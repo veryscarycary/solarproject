@@ -17,7 +17,10 @@ class PerformanceTable extends React.Component {
   }
 
   render () {
-
+    return (
+      <table>
+      </table>
+    );
   }
 }
 

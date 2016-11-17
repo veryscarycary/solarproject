@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PerformanceTable extends React.Component {
+class FinancialAnalysis extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,8 +20,11 @@ class PerformanceTable extends React.Component {
   // following for definitions on other terms.
 
   render () {
-
+    return (
+      <table>
+      </table>
+    );
   }
 }
 
-export default PerformanceTable;
+export default FinancialAnalysis;

@@ -1,5 +1,7 @@
 import React from 'react';
 import Map from './Map';
+import PerformanceTable from './PerformanceTable';
+import FinancialAnalysis from './FinancialAnalysis';
 
 class App extends React.Component {
   constructor () {
@@ -7,7 +9,7 @@ class App extends React.Component {
 
   }
 
-  
+
 
   render () {
     return (
