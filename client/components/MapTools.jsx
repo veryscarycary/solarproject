@@ -16,7 +16,10 @@ class MapTools extends React.Component {
       area: 0,
       totalArea: 0,
       wattage: 0,
-      systemSize: 'uncalculated'
+      systemSize: 'uncalculated',
+      systemCapacity: 0,
+      azimuths: [],
+      pitches: []
     };
 
     this.calculateArea = this.calculateArea.bind(this);
@@ -102,15 +105,27 @@ class MapTools extends React.Component {
   }
 
   setAzimuth(event) {
-    var obj = {};
-    obj[`azimuth${this.polygonCounter}`] = event.target.value;
-    this.setState(obj);
+    var temp = this.state.azimuths;
+    temp.push([this.polygonCounter, Number(event.target.value)]);
+
+    this.setState({
+      azimiths: temp
+    });
   }
 
   setPitch(event) {
-    var obj = {};
-    obj[`pitch${this.polygonCounter}`] = event.target.value;
-    this.setState(obj);
+    var temp = this.state.pitches;
+    temp.push([this.polygonCounter, Number(event.target.value)]);
+
+    this.setState({
+      pitches: temp
+    });
+  }
+
+  setSystemCapacity(event) {
+    this.setState({
+      systemCapacity: Number(event.target.value)
+    });
   }
 
   render () {
@@ -145,7 +160,6 @@ class MapTools extends React.Component {
               <td>Polygons</td>
               <td>Azimuth</td>
               <td>Pitch</td>
-              <td>Wattage/m<sup>2</sup></td>
             </tr>
           </thead>
           <tbody>
@@ -162,7 +176,12 @@ class MapTools extends React.Component {
           </tbody>
         </table>
 
-        <PerformanceTable />
+        <PerformanceTable
+          setSystemCapacity={this.setSystemCapacity.bind(this)}
+          systemCapacity={this.state.systemCapacity}
+          azimuths={this.state.azimuths}
+          pitches={this.state.pitches}
+        />
         <FinancialAnalysis />
       </div>
     );
