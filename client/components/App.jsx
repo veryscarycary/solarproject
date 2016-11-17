@@ -7,11 +7,15 @@ class App extends React.Component {
 
   }
 
+  
+
   render () {
     return (
       <div>
-        <h1> Testing Testing </h1>
+        <h1>Solar Measurement Tool</h1>
         <Map />
+        <PerformanceTable />
+        <FinancialAnalysis />
       </div>
     );
   }

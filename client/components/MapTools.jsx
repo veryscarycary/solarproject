@@ -109,14 +109,18 @@ class MapTools extends React.Component {
 
         <table>
           <thead>
-            <th>Total Area</th>
-            <th>Wattage/m<sup>2</sup></th>
-            <th>System Size(kW)</th>
+            <tr>
+              <th>Total Area</th>
+              <th>Wattage/m<sup>2</sup></th>
+              <th>System Size(kW)</th>
+            </tr>
           </thead>
           <tbody>
-            <td>{this.state.totalArea}</td>
-            <td><input onChange={this.setWattage.bind(this)} type="number" placeholder="Wattage/sq meter" /></td>
-            <td>{this.state.systemSize}</td>
+            <tr>
+              <td>{this.state.totalArea}</td>
+              <td><input onChange={this.setWattage.bind(this)} type="number" placeholder="Wattage/sq meter" /></td>
+              <td>{this.state.systemSize}</td>
+            </tr>
           </tbody>
         </table>
 
