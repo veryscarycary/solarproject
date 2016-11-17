@@ -13,6 +13,7 @@ var barData2 = [
   }
 ];
 
+// dummy data to represent daily KWH production
 var daysKWH = [256,254,274,244,300,267,257,264,234,243];
 
 class EnergyProductionGraph extends React.Component {

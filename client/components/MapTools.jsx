@@ -34,8 +34,8 @@ class MapTools extends React.Component {
 
     var latThird = (Math.abs(ne.lat() - sw.lat()) / 3);
     var lngThird = (Math.abs(ne.lng() - sw.lng()) / 3);
-    // (sw.lat + latThird), lng:(sw.lng + third)
 
+    // initialize four corners of the polygon
     var coords = [
         {lat: (ne.lat() - latThird), lng: (ne.lng() - lngThird)},
         {lat: (ne.lat() - (2*latThird)), lng: (ne.lng() - lngThird)},
@@ -44,7 +44,7 @@ class MapTools extends React.Component {
     ];
 
 
-    // Construct a draggable blue triangle with geodesic set to false.
+    // Construct a draggable polygon
     var color = randomColor();
     var polygon = new google.maps.Polygon({
       map: map,
@@ -59,8 +59,10 @@ class MapTools extends React.Component {
       geodesic: false
     });
 
-    console.log(this, 'this');
+    // add listeners to polygons for window popup
     polygon.addListener('click', showArrays);
+
+    // add polygons to state
     var temp = this.state.polygons;
     temp.push([polygon, color]);
     this.polygonCounter++;

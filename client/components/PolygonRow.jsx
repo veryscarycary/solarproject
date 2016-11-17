@@ -1,4 +1,5 @@
 import React from 'react';
+// this is the row that is added the table when a polygon is generated
 
 const PolygonRow = ({area, calculateArea, polygonCounter, polygon, setAzimuth, setPitch}) => (
   <tr>

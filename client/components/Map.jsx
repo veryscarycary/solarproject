@@ -11,12 +11,14 @@ class Map extends React.Component {
   }
 
   initMap () {
+    // the map is initialized and placed on the window
     window.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 19,
       center: {lat: 37.7749, lng: -122.4194},
       mapTypeId: 'satellite'
     });
 
+    // the pop-up window, when polygon is clicked, is initialized
     window.infoWindow = new google.maps.InfoWindow;
   };
 

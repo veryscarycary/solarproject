@@ -13,6 +13,7 @@ var barData1 = [
   }
 ];
 
+// dummy data to represent yearly savings
 var yearsSavings = [-20000,3345,4355,2333,4322,2311,1111,3232,3434,3434];
 
 class CashFlowGraph extends React.Component {
@@ -20,7 +21,6 @@ class CashFlowGraph extends React.Component {
     super(props);
 
   }
-
 
   render () {
     var savings = 0;
