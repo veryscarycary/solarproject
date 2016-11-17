@@ -12,7 +12,7 @@ class MapTools extends React.Component {
 
     this.state = {
       polygons:[],
-      polygonCounter: 1,
+      polygonCounter: 0,
       area: 0,
       totalArea: 0,
       wattage: 0,
@@ -60,6 +60,7 @@ class MapTools extends React.Component {
     polygon.addListener('click', showArrays);
     var temp = this.state.polygons;
     temp.push([polygon, color]);
+    this.polygonCounter++;
 
     this.setState({
       polygons: temp
@@ -100,6 +101,18 @@ class MapTools extends React.Component {
     });
   }
 
+  setAzimuth(event) {
+    var obj = {};
+    obj[`azimuth${this.polygonCounter}`] = event.target.value;
+    this.setState(obj);
+  }
+
+  setPitch(event) {
+    var obj = {};
+    obj[`pitch${this.polygonCounter}`] = event.target.value;
+    this.setState(obj);
+  }
+
   render () {
     return (
       <div>
@@ -130,8 +143,8 @@ class MapTools extends React.Component {
           <thead>
             <tr>
               <td>Polygons</td>
-              <td>Pitch</td>
               <td>Azimuth</td>
+              <td>Pitch</td>
               <td>Wattage/m<sup>2</sup></td>
             </tr>
           </thead>
@@ -142,6 +155,8 @@ class MapTools extends React.Component {
                 calculateArea={this.calculateArea}
                 polygonCounter={this.polygonCounter}
                 polygon={polygon}
+                setAzimuth={this.setAzimuth.bind(this)}
+                setPitch={this.setPitch.bind(this)}
               />
             ))}
           </tbody>
