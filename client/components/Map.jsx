@@ -1,5 +1,6 @@
 import React from 'react';
 import MapTools from './MapTools';
+import randomColor from 'randomcolor';
 
 class Map extends React.Component {
   constructor () {
@@ -7,6 +8,7 @@ class Map extends React.Component {
 
     window.initMap = this.initMap;
     window.showArrays = this.showArrays;
+    this.initialColor = randomColor();
   }
 
   initMap () {
@@ -23,30 +25,28 @@ class Map extends React.Component {
 
 
     // Construct a draggable red triangle with geodesic set to true.
-    var polygon1 = new google.maps.Polygon({
-      map: map,
-      paths: redCoords,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
-      draggable: true,
-      editable: true,
-      geodesic: false
-    });
-
-    // Add a listener for the click event.
-    polygon1.addListener('click', this.showArrays);
+    // var polygon1 = new google.maps.Polygon({
+    //   map: map,
+    //   paths: redCoords,
+    //   strokeColor: this.initialColor,
+    //   strokeOpacity: 0.8,
+    //   strokeWeight: 2,
+    //   fillColor: this.initialColor,
+    //   fillOpacity: 0.35,
+    //   draggable: true,
+    //   editable: true,
+    //   geodesic: false
+    // });
+    //
+    // // Add a listener for the click event.
+    // polygon1.addListener('click', this.showArrays);
 
     window.infoWindow = new google.maps.InfoWindow;
-
   };
 
   showArrays(event) {
     // Since this polygon has only one path, we can call getPath() to return the
     // MVCArray of LatLngs.
-    console.log(this, 'polygon this');
     var vertices = this.getPath();
 
     var contentString = '<b>Polygon</b><br>' +
