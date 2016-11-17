@@ -2,6 +2,8 @@ import React from 'react';
 import randomColor from 'randomcolor';
 
 import PolygonRow from './PolygonRow';
+import PerformanceTable from './PerformanceTable';
+import FinancialAnalysis from './FinancialAnalysis';
 
 
 class MapTools extends React.Component {
@@ -144,6 +146,9 @@ class MapTools extends React.Component {
             ))}
           </tbody>
         </table>
+
+        <PerformanceTable />
+        <FinancialAnalysis />
       </div>
     );
   }

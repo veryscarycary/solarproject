@@ -8,7 +8,6 @@ class Map extends React.Component {
 
     window.initMap = this.initMap;
     window.showArrays = this.showArrays;
-    this.initialColor = randomColor();
   }
 
   initMap () {
@@ -17,29 +16,6 @@ class Map extends React.Component {
       center: {lat: 37.7749, lng: -122.4194},
       mapTypeId: 'satellite'
     });
-
-    var redCoords = [
-      {lat: 37.7750, lng: -122.4190},
-      {lat: 37.7750, lng: -122.4189},
-    ];
-
-
-    // Construct a draggable red triangle with geodesic set to true.
-    // var polygon1 = new google.maps.Polygon({
-    //   map: map,
-    //   paths: redCoords,
-    //   strokeColor: this.initialColor,
-    //   strokeOpacity: 0.8,
-    //   strokeWeight: 2,
-    //   fillColor: this.initialColor,
-    //   fillOpacity: 0.35,
-    //   draggable: true,
-    //   editable: true,
-    //   geodesic: false
-    // });
-    //
-    // // Add a listener for the click event.
-    // polygon1.addListener('click', this.showArrays);
 
     window.infoWindow = new google.maps.InfoWindow;
   };
